@@ -1,0 +1,29 @@
+/*Start of Reset CSS file*/
+
+*{padding:0;margin:0;
+	font-family:$Default_font-family;
+	color:$Default_color;
+}
+body,li,div,dl,dt,dd,pre,input,textarea,select,p,td{
+	font-size:$Default_font-size
+}
+a{
+	color:$Default_anchor-color;
+	text-decoration:none
+}
+ul{
+	list-style:none
+}
+textarea{
+	resize:vertical
+}
+fieldset,img,button,input[type="button"],input[type="submit"]{
+	border:0
+}
+button{
+	background:transparent; overflow:visible;
+}
+button::-moz-focus-inner { border: 0; padding: 0; margin:0} /*to remove padding issue in firefox and chrome*/
+@media print{.noprint{display:none !important} .noP .f14{font-size:14pt} .noP .f13{font-size:13pt} .noP .f11{font-size:11pt}}
+	
+/*End of Reset CSS file*/	
