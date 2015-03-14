@@ -1,0 +1,12 @@
+@import 'variables';	 //Default common to Whole Naukri
+@import 'reset';
+@import 'mixins';
+
+/***
+*******************************Start of Tabbing css */
+.tabbing .tabCont{ clear:both;display:none;padding: 10px;border: 1px solid #DDDDDD}
+.tabbing .tabs{ float:left;}
+.tabbing .tabs li{ cursor:pointer;float: left;list-style: none;padding: 8px;background-color: #efefef;margin-right:4px;border-top-left-radius:4px;border-top-right-radius: 6px;}
+.tabbing .tabs .active{ padding-bottom:4px; border-bottom:4px solid #4C22FF}
+.tabbing .tabs .disable{background-color:#929292; color:#D1D1D1}
+/*End of Tabbing css */

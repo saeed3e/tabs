@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Tabbing</title>
+<link href="c/tab.css" type="text/css" rel="stylesheet" />
+<link href="c/base.css" type="text/css" rel="stylesheet" />
+<style>
+.mt30{margin-top:30px}
+.centerAlign{ width:1024px; margin:0 auto}
+
+</style>
+
+</head>
+
+<body class="centerAlign" style="padding:20px;background-color: #FCFCFC;">
+<h1 class="centerAlign" style="text-align:center">Tabbing Demo</h1>
+
+<h3 style="margin:10px 0">onMouse Over</h3>
+<div id="tabs_frst" class="tabbing">
+    <ul class="tabs">
+        <li bind="tabs_frst-1">All Sectors</li>
+        <li bind="tabs_frst-2">Information Technology</li>
+        <li bind="tabs_frst-3">Manufacturing</li>
+        <li bind="tabs_frst-4">Services</li>        
+    </ul>
+    <div class="tabCont" id="tabs_frst-1">
+    	<ul>
+			<li>UP/LEFT: Move focus to the previous tab. If on first tab, moves focus to last tab. Activate focused tab after a short delay.</li>
+			<li>DOWN/RIGHT: Move focus to the next tab. If on last tab, moves focus to first tab. Activate focused tab after a short delay.</li>
+			<li>HOME: Move focus to the first tab. Activate focused tab after a short delay.</li>
+			<li>END: Move focus to the last tab. Activate focused tab after a short delay.</li>
+			<li>SPACE: Activate panel associated with focused tab.</li>
+			<li>ENTER: Activate or toggle panel associated with focused tab.</li>
+			<li>ALT+PAGE UP: Move focus to the previous tab and immediately activate.</li>
+			<li>ALT+PAGE DOWN: Move focus to the next tab and immediately activate.</li>
+		</ul>
+    </div>
+    <div class="tabCont" id="tabs_frst-2">
+    	<p>Information Technology Tab</p>
+    </div>
+    <div class="tabCont" id="tabs_frst-3">
+        <p>
+        	Manufacturing Tab
+        </p>
+    </div>
+    <div class="tabCont" id="tabs_frst-4">
+        <p>
+        	Services Tab
+        </p>
+    </div>    
+</div>
+<h3 style="margin:30px 0 10px 0">onClick: Second Tab selected by default</h3>
+<div id="tabs_secnd" class="tabbing">
+     <ul class="tabs">
+        <li bind="tabs_secnd-1">Tab1</li>
+        <li bind="tabs_secnd-2">Tab2</li>
+        <li bind="tabs_secnd-3">Tab3</li>
+        <li bind="tabs_secnd-3">Tab4</li>
+        <li bind="tabs_secnd-3">Tab5</li>
+    </ul>
+    <div class="tabCont" id="tabs_secnd-1">
+    	<p>Tab1 Container</p>
+    </div>
+    <div class="tabCont" id="tabs_secnd-2">
+    	<p>Tab2 Container</p>
+    </div>
+    <div class="tabCont" id="tabs_secnd-3">
+    	<p>Tab3 Container</p>
+    </div>
+    <div class="tabCont" id="tabs_secnd-4">
+    	<p>Tab2 Container</p>
+    </div>
+    <div class="tabCont" id="tabs_secnd-5">
+    	<p>Tab3 Container</p>
+    </div>
+</div>
+<h3  style="margin:30px 0 10px 0">Disabled specific tab (Tab4 is disabled)</h3>
+<div id="tabs_third" class="tabbing">
+     <ul class="tabs">
+        <li bind="tabs_third-1">Tab1</li>
+        <li bind="tabs_third-2">Tab2</li>
+        <li bind="tabs_third-3">Tab3</li>
+        <li bind="tabs_third-3">Tab4</li>
+        <li bind="tabs_third-3">Tab5</li>
+    </ul>
+    <div class="tabCont" id="tabs_third-1">
+    	<p>Tab1 Container</p>
+    </div>
+    <div class="tabCont" id="tabs_third-2">
+    	<p>Tab2 Container</p>
+    </div>
+    <div class="tabCont" id="tabs_third-3">
+    	<p>Tab3 Container</p>
+    </div>
+    <div class="tabCont" id="tabs_third-4">
+    	<p>Tab2 Container</p>
+    </div>
+    <div class="tabCont" id="tabs_third-5">
+    	<p>Tab3 Container</p>
+    </div>
+</div>
+
+<div id="content">
+<!-- <header class="mt30"><h3>Dependencies</h3></header>
+<ul class="dependnecy">
+    <li><a href="/category/ui-core/">Tabs Core css</a></li>
+    <li><a href="/jQuery.widget/">Tabs javascript plugin file</a></li>
+</ul> -->
+<section class="quickNav mt30">
+    <header><h2>Tabs Widget parameters</h2></header>
+    <div class="quickNavSec">
+    	<h3>Options</h3>
+        <div><a href="#option-active">active</a></div>
+        <div><a href="#option-disabled">disabled</a></div>
+        <div><a href="#option-event">openEvent</a></div>
+        <div><a href="#option-heightStyle">heightStyle</a></div>
+    </div>
+    <div class="quickNavSec">
+    <h3>Events</h3>
+        <div><a href="#event-activate">onClick</a></div>
+    </div>
+</section>
+
+
+<section id="options" class="mt30">
+	<header><h2>Options</h2></header>
+    <div id="option-active" class="api-item first-item">
+        <h3>active
+        	<span class="option-type"><strong>Type: </strong>Integer</span>
+        </h3>
+        <div class="default">
+            <strong>Default: </strong><code>0</code>
+        </div>
+		<div>
+			Which panel is currently open.
+		</div>
+		<ul  class="dependnecy">
+            <li>
+                <strong>Integer</strong>: The zero-based index of the panel that is active (open). A negative value selects panels going backward from the last panel.
+            </li>
+        </ul>
+		<strong>Code examples:</strong><p>Initialize the tabs with the <code>active</code> option specified:</p>
+        <div class="syntaxhighlighter javascript nogutter">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="gutter">                            
+                            <div class="line n1">1</div>                            
+                        </td>
+                        <td class="code">
+                            <pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tabs({ active: <span class="number">1</span> });</code></div></div></pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+	</div>
+
+    <div id="option-disabled" class="api-item">
+        <h3>disabled<span class="option-type"><strong>Type: </strong>Integer or Array</span></h3>
+        <div class="default">
+            <strong>Default: </strong><code>false</code>
+        </div>
+        <div>Which tabs are disabled.</div>        
+        <ul>
+            <li>
+	            <strong>Array</strong>: An array containing the zero-based indexes of the tabs that should be disabled, e.g., <code>[ 0, 2 ]</code> would disable the first and third tab.
+            </li>
+        </ul>
+        <strong>Code examples:</strong><p>Initialize the tabs with the <code>disabled</code> option specified:</p>
+        <div class="syntaxhighlighter javascript nogutter">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="gutter">					
+                            <div class="line n1">1</div>					
+                        </td>
+                        <td class="code">
+                            <pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tabs({ disabled: [ <span class="number">0</span>, <span class="number">2</span> ] });</code></div></div></pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="option-event" class="api-item">
+        <h3>openEvent<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">String</a></span>
+        </h3>
+        <div class="default">
+        <strong>Default: </strong><code>"click"</code>
+        </div>
+        <div>The type of event that the tabs should react to in order to activate the tab. To activate on hover, use <code>"mouseover"</code>.</div>
+        <strong>Code examples:</strong><p>Initialize the tabs with the <code>openEvent</code> option specified:</p>
+        <div class="syntaxhighlighter javascript nogutter">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="gutter">                        
+                            <div class="line n1">1</div>                        
+                        </td>
+                        <td class="code">
+                            <pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tabs({ openEvent: <span class="string">"mouseover"</span> });</code></div></div></pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="option-heightStyle" class="api-item">
+        <h3>heightStyle (pending)<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">String</a></span></h3>
+        <div class="default">
+            <strong>Default: </strong><code>"content"</code>
+        </div>
+        <div>
+            Controls the height of the tabs widget and each panel. Possible values:
+            <ul>
+                <li>
+                    <code>"auto"</code>: All panels will be set to the height of the tallest panel.</li>
+                <li>
+                    <code>"fill"</code>: Expand to the available height based on the tabs' parent height.</li>
+                <li>
+                    <code>"content"</code>: Each panel will be only as tall as its content.
+                </li>
+            </ul>
+        </div>
+        <strong>Code examples:</strong><p>Initialize the tabs with the <code>heightStyle</code> option specified:</p>
+        <div class="syntaxhighlighter javascript nogutter">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="gutter">                        
+                            <div class="line n1">1</div>                        
+                        </td>
+                        <td class="code">
+                            <pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tabs({ heightStyle: <span class="string">"fill"</span> });</code></div></div></pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</section>
+</div>
+<script src="j/jquery-1.8.js" type="text/javascript"></script>
+<script src="j/tab.js" type="text/javascript"></script>
+
+<script>
+	$('#tabs_frst').tabs({
+		onClick : function(arg1,arg2){			// first Argument: object which is currently active or clicked, Second Argument: previous active element
+					console.log(arg1[0],arg2[0])
+				},						// accept only integer value
+		openEvent: "mouseover"			// "click", "mouseover" : default event is click
+	})
+	$('#tabs_secnd').tabs({
+		active:-4,						// accept only integer value: default first tab selected
+		onClick : function(arg1,arg2){		
+					console.log(arg1[0],arg2[0])
+				},
+	});
+	$('#tabs_third').tabs({
+		disabled:3
+	})
+	var active = $( "#tabs_third" ).tabs( "option", "disabled" );
+	console.log(active)
+</script>    
+</body>
+</html>
