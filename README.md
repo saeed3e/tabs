@@ -1,4 +1,4 @@
-# tabs [![Build Status](https://travis-ci.org/saeed3e/tabs.svg?branch=master)](https://travis-ci.org/saeed3e/tabs)
+# Tabs [![Build Status](https://travis-ci.org/saeed3e/tabs.svg?branch=master)](https://travis-ci.org/saeed3e/tabs)
 
 
 ## Demo
