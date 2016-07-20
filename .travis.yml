@@ -16,4 +16,5 @@ before_script:
   - npm install
 
 script: 
- - grunt
+ - grunt 
+ - grunt test
