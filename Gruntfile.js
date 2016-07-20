@@ -1,14 +1,23 @@
 module.exports = function(grunt) {
-    grunt.initConfig({
-	  concat: {
-		plugins_js: {
-		  src: ['!**/*'],
-		  dest: 'gen/no.use',
-		  nonull:true
-		}		
-	  }
-	});
-  grunt.file.expand('./../../node_modules/grunt-*/tasks').forEach(grunt.loadTasks);
-  require('./../../node_modules/grunt-config-merge')(grunt);
-  require('../grunt/global/grunt-default.js')(grunt);
+
+  // Project configuration.
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+      },
+      build: {
+        src: 'src/j/<%= pkg.name %>.js',
+        dest: 'gen/j/<%= pkg.name %>.min.js'
+      }
+    }
+  });
+
+  // Load the plugin that provides the "uglify" task.
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+
+  // Default task(s).
+  grunt.registerTask('default', ['uglify']);
+
 };
