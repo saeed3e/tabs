@@ -6,5 +6,4 @@ node_js:
   - "0.6"
   - "iojs"
 
-before_script:
-  - sudo npm install -g grunt
+before_script: npm install -g grunt
