@@ -7,3 +7,5 @@ node_js:
   - "iojs"
 
 before_script: npm install -g grunt
+
+after_success: npm test
