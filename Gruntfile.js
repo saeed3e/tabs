@@ -51,13 +51,9 @@ module.exports = function(grunt) {
                 // coveralls.io is down). Optional, defaults to false.
                 force: false
             },
-
             your_target: {
                 // LCOV coverage file (can be string, glob or array)
-                src: 'src/coverage/lcov.info',
-                options: {
-                    // Any options for just this target
-                }
+                src: 'src/coverage/lcov.info'
             },
         },
     });
@@ -65,8 +61,6 @@ module.exports = function(grunt) {
 
     grunt.file.expand('./../node_modules/grunt-*/tasks').forEach(grunt.loadTasks);
     require('./../node_modules/grunt-config-merge')(grunt);
-
-    grunt.loadmoudel('uglify')
 
     grunt.registerTask('default', ['uglify']);
     grunt.registerTask('test', ['jasmine']);
