@@ -13,20 +13,61 @@ module.exports = function(grunt) {
             }
         },
         jasmine: {
-            src: 'src/**/*.js',
+            coverage: {
+                src: 'src/**/*.js',
+                options: {
+                    specs: 'spec/**/*.js',
+                    template: require('grunt-template-jasmine-istanbul'),
+                    templateOptions: {
+                        coverage: 'src/coverage/coverage.json',
+                        //report: 'src/coverage',
+                        report: {
+                            type: 'cobertura',
+                            options: {
+                                dir: 'src/coverage'
+                            }
+                        },
+                        report: {
+                            type: 'lcov',
+                            options: {
+                                dir: 'src/coverage'
+                            }
+                        },
+                        thresholds: {
+                            lines: 5,
+                            statements: 5,
+                            branches: 5,
+                            functions: 5
+                        }
+                    }
+                }
+            },
+        },
+        coveralls: {
+            // Options relevant to all targets
             options: {
-                specs: 'spec/**/*.js'
-            }
-        }
+                // When true, grunt-coveralls will only print a warning rather than
+                // an error, to prevent CI builds from failing unnecessarily (e.g. if
+                // coveralls.io is down). Optional, defaults to false.
+                force: false
+            },
+
+            your_target: {
+                // LCOV coverage file (can be string, glob or array)
+                src: 'src/coverage/lcov.info',
+                options: {
+                    // Any options for just this target
+                }
+            },
+        },
     });
 
-    // Load the plugin that provides the "uglify" task.
-    grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    // Load the plugin that provides the "unit tests" task by jasmin
-    grunt.loadNpmTasks('grunt-contrib-jasmine');
+    grunt.file.expand('./../node_modules/grunt-*/tasks').forEach(grunt.loadTasks);
+    require('./../node_modules/grunt-config-merge')(grunt);
 
-    // Default task(s).
+    grunt.loadmoudel('uglify')
+
     grunt.registerTask('default', ['uglify']);
     grunt.registerTask('test', ['jasmine']);
 
