@@ -1,10 +1,11 @@
 {
   "name": "my-project-name",
-  "description":"tab.js",
+  "description": "tab.js",
   "version": "0.1.0",
   "dependencies": {},
   "devDependencies": {
     "grunt": "^1.0.1",
+    "grunt-config-merge": "^1.2.0",
     "grunt-contrib-jasmine": "^1.0.3",
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-nodeunit": "^v1.0.0",
@@ -12,5 +13,5 @@
     "grunt-template-jasmine-istanbul": "^0.5.0",
     "jasmine": "^2.5.2"
   },
-  "licence":"MIT"
+  "licence": "MIT"
 }
