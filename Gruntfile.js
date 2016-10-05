@@ -28,7 +28,7 @@ module.exports = function(grunt) {
                             }
                         },
                         report: {
-                            type: 'lcov',
+                            type: 'cobertura',   // valid types : cobertura, lcov
                             options: {
                                 dir: 'src/coverage'
                             }
