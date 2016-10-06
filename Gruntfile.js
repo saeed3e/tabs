@@ -20,15 +20,8 @@ module.exports = function(grunt) {
                     template: require('grunt-template-jasmine-istanbul'),
                     templateOptions: {
                         coverage: 'src/coverage/coverage.json',
-                        //report: 'src/coverage',
                         report: {
-                            type: 'cobertura',
-                            options: {
-                                dir: 'src/coverage'
-                            }
-                        },
-                        report: {
-                            type: 'cobertura',   // valid types : cobertura, lcov
+                            type: 'lcov',   // valid types : cobertura, lcov
                             options: {
                                 dir: 'src/coverage'
                             }
